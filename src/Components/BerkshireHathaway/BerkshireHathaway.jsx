@@ -47,7 +47,7 @@ const BerkshireHathawayWebsite = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
+<div className="min-h-screen bg-slate-50 font-sans">
       {/* Sticky Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrollY > 0 ? 'bg-white/90 backdrop-blur-xl shadow-lg border-b border-slate-200/50' : 'bg-transparent'
@@ -115,74 +115,154 @@ const BerkshireHathawayWebsite = () => {
         )}
       </nav>
 
-      {/* Hero Section with Striking Banner */}
-<section id="home" className="pt-20 min-h-screen flex items-center relative overflow-hidden">
-  {/* Background Image with subtle effects */}
-  <img
-    src="images/berkshire-bg"
-    alt="Backdrop"
-    className="absolute inset-0 w-full h-full object-cover opacity-30 blur-sm mix-blend-soft-light pointer-events-none"
-  />
-  
-  {/* Gradient fades at top and bottom */}
-  <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent z-10"></div>
-  <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-10"></div>
-  
-  {/* Animated Background Elements */}
-  <div className="absolute inset-0 overflow-hidden">
-    <div className="absolute top-20 left-1/4 w-72 h-72 bg-gradient-to-br from-amber-100 to-amber-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-    <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-gradient-to-br from-slate-100 to-slate-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" style={{animationDelay: '2s'}}></div>
-  </div>
-  
-  {/* BH Watermark */}
-  <div className="absolute top-10 right-10 text-[10rem] font-bold text-amber-100 opacity-5 pointer-events-none select-none">
-    BH
-  </div>
-  
-  <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-    <div className="max-w-5xl">
-      <div className="mb-8">
-        <span className="inline-flex items-center px-4 py-2 rounded-full bg-amber-100 text-amber-800 text-sm font-medium tracking-wide">
-          <Star className="h-4 w-4 mr-2" />
-          Fortune 500 • Est. 1965
-        </span>
-      </div>
-      
-      <h1 className="text-5xl md:text-7xl font-light text-slate-900 mb-8 leading-tight tracking-tight">
-        Building 
-        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-700 font-normal">
-          Exceptional Value
-        </span>
-        <span className="text-4xl md:text-5xl block mt-2 text-slate-600">
-          For Six Decades
-        </span>
-      </h1>
-      
-      <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl font-light leading-relaxed">
-        A diversified holding company committed to long-term value creation through disciplined capital allocation, 
-        operational excellence, and unwavering integrity in everything we do.
-      </p>
-      
-      <div className="flex flex-col sm:flex-row gap-6">
-        <button
-          onClick={() => scrollToSection('letters')}
-          className="group px-8 py-4 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl hover:from-slate-800 hover:to-slate-700 transition-all duration-300 flex items-center justify-center gap-3 font-light tracking-wide shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-        >
-          <FileText className="h-5 w-5 group-hover:scale-110 transition-transform" />
-          Read Warren's Latest Letter
-        </button>
-        <button
-          onClick={() => scrollToSection('about')}
-          className="px-8 py-4 border-2 border-slate-300 text-slate-700 rounded-2xl hover:bg-slate-50 hover:border-slate-400 transition-all duration-300 font-light tracking-wide"
-        >
-          Discover Our Story
-        </button>
-      </div>
-     
-    </div>
-  </div>
-</section>
+      {/* Hero Section - Berkshire Hathaway */}
+      <section className="relative h-screen max-h-[900px] min-h-[600px] overflow-hidden bg-white">
+        {/* Subtle overlay for text contrast */}
+        <div className="absolute inset-0 bg-white/60 z-10"></div>
+        
+        {/* Professional background image */}
+        <div className="absolute inset-0 bg-gray-50">
+          <img 
+            src="images/berkshire-hq.jpg"
+            alt="Professional office building"
+            className="w-full h-full object-cover object-center opacity-30"
+            loading="eager"
+          />
+        </div>
 
+        {/* Subtle texture overlay */}
+        <div className="absolute inset-0 opacity-[0.02] z-10">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.1)_1px,transparent_0)] bg-[length:40px_40px]"></div>
+        </div>
+
+        {/* Content container with precise vertical centering */}
+        <div className="container relative z-20 h-full flex flex-col justify-center px-6 mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
+            {/* Left side content with increased margin */}
+            <div className="max-w-2xl ml-8 lg:ml-16">
+              {/* Minimal status line */}
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-8 h-8 bg-slate-900 rounded flex items-center justify-center">
+                  <span className="text-white font-semibold text-xs">BH</span>
+                </div>
+                <span className="text-slate-700 font-medium text-sm tracking-wide">BERKSHIRE HATHAWAY INC.</span>
+              </div>
+
+              {/* Clean, professional headline */}
+              <h1 className="text-5xl md:text-6xl font-light leading-tight text-slate-900 mb-6">
+                <span className="block font-light">Building</span>
+                <span className="block font-normal">Exceptional Value</span>
+                <span className="block text-slate-600 font-light">Since 1965</span>
+              </h1>
+
+              {/* Refined description */}
+              <p className="text-lg text-slate-700 mb-10 max-w-xl leading-relaxed font-light">
+                A diversified holding company committed to long-term value creation through 
+                disciplined capital allocation, operational excellence, and unwavering integrity.
+              </p>
+
+              {/* Clean button group */}
+              <div className="flex flex-wrap gap-4">
+                <button 
+                  onClick={() => scrollToSection('letters')}
+                  className="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm rounded transition-all duration-200 flex items-center gap-2 group"
+                >
+                  <span>Chairman's Letter</span>
+                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </button>
+                
+                <button 
+                  onClick={() => scrollToSection('about')}
+                  className="px-6 py-3 border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 font-medium text-sm rounded transition-all duration-200"
+                >
+                  Our Story
+                </button>
+              </div>
+            </div>
+
+            {/* Right side content - Key metrics and highlights */}
+          <div className="hidden lg:block">
+            <div className="space-y-8">
+              {/* Key Stats */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-slate-200/50">
+                <h3 className="text-lg font-medium text-slate-900 mb-6">Key Highlights</h3>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-lg mb-3 mx-auto">
+                      <TrendingUp className="h-6 w-6 text-slate-600" />
+                    </div>
+                    <div className="text-2xl font-semibold text-slate-900">$900B+</div>
+                    <div className="text-sm text-slate-600">Market Cap</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-lg mb-3 mx-auto">
+                      <Users className="h-6 w-6 text-slate-600" />
+                    </div>
+                    <div className="text-2xl font-semibold text-slate-900">380K+</div>
+                    <div className="text-sm text-slate-600">Employees</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-lg mb-3 mx-auto">
+                      <Award className="h-6 w-6 text-slate-600" />
+                    </div>
+                    <div className="text-2xl font-semibold text-slate-900">60+</div>
+                    <div className="text-sm text-slate-600">Companies</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-lg mb-3 mx-auto">
+                      <Globe className="h-6 w-6 text-slate-600" />
+                    </div>
+                    <div className="text-2xl font-semibold text-slate-900">Global</div>
+                    <div className="text-sm text-slate-600">Presence</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Latest Update */}
+              <div className="bg-slate-800/95 backdrop-blur-sm rounded-2xl p-8 text-white">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium text-slate-300">Latest Update</span>
+                </div>
+                <h4 className="text-lg font-medium mb-2">2024 Annual Report</h4>
+                <p className="text-slate-300 text-sm leading-relaxed mb-4">
+                  Our comprehensive annual report showcasing another year of steady growth and strategic investments.
+                </p>
+                <button className="text-white hover:text-slate-200 text-sm font-medium transition-colors duration-200 flex items-center gap-1 group">
+                  Read More
+                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+              </div>
+            </div>
+
+            {/* Minimal scroll indicator */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+              <div className="w-px h-8 bg-slate-400 animate-pulse"></div>
+            </div>
+
+            {/* Subtle brand watermark */}
+            <div className="absolute right-8 bottom-8 z-10 opacity-5">
+              <div className="w-20 h-20 border border-slate-300 rounded flex items-center justify-center">
+                <span className="text-slate-600 font-light text-xl">BH</span>
+              </div>
+            </div>
+
+            {/* Year marker */}
+            <div className="absolute left-6 top-1/2 -translate-y-1/2 z-10 opacity-20">
+              <div className="transform -rotate-90 origin-left">
+                <span className="text-slate-500 font-light text-xs tracking-widest">EST. 1965</span>
+              </div>
+            </div>
+          </section>
+  );
       {/* About Section */}
       <section id="about" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
