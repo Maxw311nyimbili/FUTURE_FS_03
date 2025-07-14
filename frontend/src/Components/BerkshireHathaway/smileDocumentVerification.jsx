@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Upload, User, CreditCard, Camera, Globe, CheckCircle, X } from 'lucide-react';
-import smileIdentityService from '../../../../backend/services/smileIdentityService';
 
 const DocumentVerification = () => {
   const [formData, setFormData] = useState({
@@ -49,33 +48,61 @@ const DocumentVerification = () => {
     setPreviews(prev => ({ ...prev, [field]: null }));
   };
 
+//-----------------------------------------------
+//Node JS end point request
   const handleSubmit = async () => {
-    setLoading(true);
+  setLoading(true);
 
-    // Simulate API call
-    try {
-      const formDataToSend = new FormData();
-      formDataToSend.append('selfie', formData.selfie);
-      formDataToSend.append('idCardFront', formData.idCardFront);
-      formDataToSend.append('idCardBack', formData.idCardBack);
-      formDataToSend.append('country', formData.country);
-      if (formData.userId) {
-        formDataToSend.append('userId', formData.userId);
-      }
-
-      // Simulate processing time
-      
-      const response = await smileIdentityService.uploadDocuments(formDataToSend);
-      alert('Verification successful:', response);
-
-      setSubmitted(true);
-    } catch (error) {
-      console.error('Verification failed:', error);
-      alert('Verification failed:', error);
-    } finally {
-      setLoading(false);
+  try {
+    const formDataToSend = new FormData();
+    formDataToSend.append('selfie', formData.selfie);
+    formDataToSend.append('idCardFront', formData.idCardFront);
+    formDataToSend.append('idCardBack', formData.idCardBack);
+    formDataToSend.append('country', formData.country);
+    if (formData.userId) {
+      formDataToSend.append('userId', formData.userId);
     }
-  };
+
+    const response = await fetch('/api/verify-documents', {
+      method: 'POST',
+      body: formDataToSend,
+    });
+
+    const contentType = response.headers.get('content-type');
+    let responseBody;
+
+    if (contentType && contentType.includes('application/json')) {
+      responseBody = await response.json();
+    } else {
+      responseBody = await response.text();
+    }
+
+    if (!response.ok) {
+      const message = typeof responseBody === 'string'
+        ? responseBody
+        : responseBody.message || 'Verification failed';
+      throw new Error(message);
+    }
+
+    const message = typeof responseBody === 'string'
+      ? responseBody
+      : responseBody.message || 'Verification successful';
+      console.log('Response body:', responseBody);
+
+
+    alert(`Verification successful: ${message}`);
+    setSubmitted(true);
+
+  } catch (error) {
+    console.error('Verification failed:', error);
+    alert(`Verification failed: ${error.message}`);
+    
+  } finally {
+    setLoading(false);
+  }
+};
+//---------------------------------------------------
+
 
   const isFormValid = formData.selfie && formData.idCardFront && formData.idCardBack && formData.country;
 

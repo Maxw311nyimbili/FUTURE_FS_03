@@ -4,13 +4,13 @@ const Home = () => {
     return (
         <div>
 
-            {/* <div className="w-full">
-                <BerkshireHathaway/>
-            </div> */}
-
             <div className="w-full">
-                <DocumentVerification/>
+                <BerkshireHathaway/>
             </div>
+
+            {/* <div className="w-full">
+                <DocumentVerification/>
+            </div> */}
 
         </div>
     );

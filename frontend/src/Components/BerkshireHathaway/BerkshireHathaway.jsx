@@ -15,17 +15,45 @@ const BerkshireHathawayWebsite = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const shareholderLetters = [
-    { year: '2024', title: 'Letter to Shareholders', date: 'February 2024', size: '2.3MB', featured: true },
-    { year: '2023', title: 'Letter to Shareholders', date: 'February 2023', size: '2.1MB', featured: false },
-    { year: '2022', title: 'Letter to Shareholders', date: 'February 2022', size: '1.9MB', featured: false },
-    { year: '2021', title: 'Letter to Shareholders', date: 'February 2021', size: '2.0MB', featured: false },
+    { 
+      year: '2023', 
+      title: 'Letter to Shareholders', 
+      date: 'February 2023', 
+      size: '2.1MB',
+      link: 'https://www.berkshirehathaway.com/letters/2023ltr.pdf',
+      featured: true 
+    },
+    { 
+      year: '2022', 
+      title: 'Letter to Shareholders', 
+      date: 'February 2022', 
+      size: '1.9MB',
+      link: 'https://www.berkshirehathaway.com/letters/2022ltr.pdf',
+      featured: false  
+    },
+    { 
+     year: '2021', 
+     title: 'Letter to Shareholders', 
+     date: 'February 2021', 
+     size: '2.0MB',
+     link: 'https://www.berkshirehathaway.com/letters/2021ltr.pdf',
+     featured: false 
+    },
+   { 
+    year: '2020', 
+    title: 'Letter to Shareholders', 
+    date: 'February 2020', 
+    size: '1.8MB',
+    link: 'https://www.berkshirehathaway.com/letters/2020ltr.pdf',
+    featured: false 
+  },
   ];
 
   const subsidiaries = [
-    { name: 'GEICO', sector: 'Insurance', description: 'Leading auto insurance provider with innovative direct-to-consumer approach', icon: Shield },
-    { name: 'BNSF Railway', sector: 'Transportation', description: 'North America\'s premier freight railroad network spanning 28 states', icon: Globe },
-    { name: 'Berkshire Hathaway Energy', sector: 'Energy', description: 'Renewable energy pioneer committed to sustainable power solutions', icon: Star },
-    { name: 'Precision Castparts', sector: 'Manufacturing', description: 'World-class aerospace and industrial component manufacturer', icon: Award },
+    { name: 'GEICO', sector: 'Insurance', description: 'Leading auto insurance provider with innovative direct-to-consumer approach', icon: Shield, link:'https://www.geico.com/'},
+    { name: 'BNSF Railway', sector: 'Transportation', description: 'North America\'s premier freight railroad network spanning 28 states', icon: Globe, link:'https://www.bnsf.com/'},
+    { name: 'Berkshire Hathaway Energy', sector: 'Energy', description: 'Renewable energy pioneer committed to sustainable power solutions', icon: Star, link:'https://www.brkenergy.com/' },
+    { name: 'Precision Castparts', sector: 'Manufacturing', description: 'World-class aerospace and industrial component manufacturer', icon: Award, link: 'https://www.precast.com/'},
   ];
 
   const navItems = [
@@ -55,10 +83,13 @@ const BerkshireHathawayWebsite = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-light text-slate-800 tracking-wide">
-                Berkshire Hathaway <span className="text-amber-600 font-normal">Inc.</span>
-              </h1>
+            <div className="flex-shrink-0 flex items-center space-x-3">
+              <img 
+                src="images/logo.png" 
+                alt="Berkshire Hathaway Inc. Logo" 
+                className="h-20 w-auto"
+              />
+          
             </div>
 
             {/* Desktop Navigation */}
@@ -116,7 +147,7 @@ const BerkshireHathawayWebsite = () => {
       </nav>
 
       {/* Hero Section - Berkshire Hathaway */}
-      <section className="relative h-screen max-h-[900px] min-h-[600px] overflow-hidden bg-white">
+      <section id="home" className="relative h-screen max-h-[900px] min-h-[600px] overflow-hidden bg-white">
         {/* Subtle overlay for text contrast */}
         <div className="absolute inset-0 bg-white/60 z-10"></div>
         
@@ -358,7 +389,9 @@ const BerkshireHathawayWebsite = () => {
                     </div>
                   </div>
                   
-                  <button className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl hover:from-slate-800 hover:to-slate-700 transition-all duration-300 font-light tracking-wide shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                  <button 
+                  onClick={() => window.open(letter.link, '_blank')}
+                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl hover:from-slate-800 hover:to-slate-700 transition-all duration-300 font-light tracking-wide shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     <Download className="h-5 w-5" />
                     Download PDF
                   </button>
@@ -382,109 +415,143 @@ const BerkshireHathawayWebsite = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {subsidiaries.map((company, index) => {
-              const IconComponent = company.icon;
-              return (
-                <div key={company.name} className="group bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-                  <div className="p-8">
-                    <div className="flex items-center justify-between mb-6">
-                      <div>
-                        <h3 className="text-2xl font-light text-slate-900 mb-2 tracking-wide">
-                          {company.name}
-                        </h3>
-                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium tracking-wide">
-                          {company.sector}
-                        </span>
-                      </div>
-                      <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="h-6 w-6 text-white" />
-                      </div>
-                    </div>
-                    
-                    <p className="text-slate-600 mb-6 font-light leading-relaxed">
-                      {company.description}
-                    </p>
-                    
-                    <button className="text-amber-600 hover:text-amber-700 transition-colors duration-200 flex items-center gap-2 text-sm font-light tracking-wide group">
-                      Learn More 
-                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
+       <div className="grid md:grid-cols-2 gap-8">
+  {subsidiaries.map((company, index) => {
+    const IconComponent = company.icon;
+    return (
+      <a 
+        key={company.name} 
+        href={company.link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group block bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-100 overflow-hidden hover:border-amber-200"
+      >
+        <div className="p-8">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h3 className="text-2xl font-light text-slate-900 mb-2 tracking-wide">
+                {company.name}
+              </h3>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium tracking-wide">
+                {company.sector}
+              </span>
+            </div>
+            <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <IconComponent className="h-6 w-6 text-white" />
+            </div>
           </div>
+          
+          <p className="text-slate-600 mb-6 font-light leading-relaxed">
+            {company.description}
+          </p>
+          
+          <div className="text-amber-600 hover:text-amber-700 transition-colors duration-200 flex items-center gap-2 text-sm font-light tracking-wide group">
+            Learn More 
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </div>
+      </a>
+    );
+  })}
+</div>
         </div>
       </section>
 
-      {/* News Section */}
-      <section id="news" className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 tracking-tight">
-              Latest <span className="text-amber-600">News</span>
-            </h2>
-            <p className="text-xl text-slate-600 font-light leading-relaxed">
-              Stay informed about company developments, earnings releases, and strategic initiatives 
-              that drive our continued growth.
-            </p>
-          </div>
+   {/* News Section */}
+    <section id="news" className="py-24 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 tracking-tight">
+            Latest <span className="text-amber-600">News</span>
+          </h2>
+          <p className="text-xl text-slate-600 font-light leading-relaxed">
+            Stay informed about company developments, earnings releases, and strategic initiatives 
+            that drive our continued growth.
+          </p>
+        </div>
 
-          <div className="space-y-8">
-            {[
-              {
-                date: 'July 8, 2025',
-                title: 'Q2 2025 Operating Results Exceed Expectations',
-                summary: 'Berkshire Hathaway reports exceptional second quarter performance with record operating earnings across all major business segments.',
-                featured: true
-              },
-              {
-                date: 'June 15, 2025',
-                title: 'Annual Meeting Highlights & Key Insights',
-                summary: 'Comprehensive coverage and video recordings from the 2025 Annual Shareholders Meeting in Omaha, featuring Q&A with Warren Buffett.',
-                featured: false
-              },
-              {
-                date: 'May 20, 2025',
-                title: 'Comprehensive Sustainability Report Released',
-                summary: 'Detailed overview of environmental and social responsibility initiatives across our portfolio of operating companies.',
-                featured: false
-              }
-            ].map((news, index) => (
-              <div key={index} className={`group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-100 overflow-hidden ${
-                news.featured ? 'ring-2 ring-amber-200' : ''
-              }`}>
-                {news.featured && (
-                  <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-500 to-amber-600 text-white px-4 py-2 rounded-bl-2xl">
-                    <span className="text-sm font-medium">Breaking</span>
-                  </div>
-                )}
-                
-                <div className="p-8">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium tracking-wide mb-4">
-                        {news.date}
-                      </span>
-                      <h3 className="text-2xl font-light text-slate-900 mb-3 tracking-wide">
-                        {news.title}
-                      </h3>
-                      <p className="text-slate-600 mb-6 font-light leading-relaxed">
-                        {news.summary}
-                      </p>
-                      <button className="text-amber-600 hover:text-amber-700 transition-colors duration-200 flex items-center gap-2 text-sm font-light tracking-wide group">
-                        Read Full Article 
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
+        <div className="space-y-8">
+          {[
+            {
+              date: 'May 4, 2024',
+              title: 'Q1 2024 Earnings Report Released',
+              summary: 'Berkshire Hathaway reports first quarter financial results with operating earnings of $11.22 billion.',
+              link: 'https://www.berkshirehathaway.com/news/may0424.pdf',
+              featured: true
+            },
+            {
+              date: 'April 30, 2024',
+              title: '2024 Annual Shareholders Meeting Materials',
+              summary: 'Official documents and information for the upcoming 2024 Annual Meeting of Shareholders.',
+              link: 'https://www.berkshirehathaway.com/sharehold.html',
+              featured: false
+            },
+            {
+              date: 'February 24, 2024',
+              title: '2023 Annual Report and Shareholder Letter',
+              summary: 'Warren Buffett\'s annual letter to shareholders and complete 2023 financial report.',
+              link: 'https://www.berkshirehathaway.com/2023ar/2023ar.pdf',
+              featured: false
+            },
+            {
+              date: 'November 3, 2023',
+              title: 'Q3 2023 Earnings Report',
+              summary: 'Third quarter financial results showing operating earnings of $10.76 billion.',
+              link: 'https://www.berkshirehathaway.com/qtrly/3rdqtr23.pdf',
+              featured: false
+            }
+          ].map((news, index) => (
+            <div key={index} className={`group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-100 overflow-hidden ${
+              news.featured ? 'ring-2 ring-amber-200' : ''
+            }`}>
+              {news.featured && (
+                <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-500 to-amber-600 text-white px-4 py-2 rounded-bl-2xl">
+                  <span className="text-sm font-medium">Latest</span>
+                </div>
+              )}
+              
+              <div className="p-8">
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium tracking-wide mb-4">
+                      {news.date}
+                    </span>
+                    <h3 className="text-2xl font-light text-slate-900 mb-3 tracking-wide">
+                      {news.title}
+                    </h3>
+                    <p className="text-slate-600 mb-6 font-light leading-relaxed">
+                      {news.summary}
+                    </p>
+                    <a 
+                      href={news.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-amber-600 hover:text-amber-700 transition-colors duration-200 flex items-center gap-2 text-sm font-light tracking-wide group"
+                    >
+                      Read Full Article 
+                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
+
+        {/* View All News Button */}
+        <div className="text-center mt-16">
+          <a
+            href="https://www.berkshirehathaway.com/reports.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-6 py-3 border border-slate-300 text-sm font-medium rounded-xl text-slate-700 bg-white hover:bg-slate-50 transition-colors duration-200"
+          >
+            View All News Releases
+            <ExternalLink className="ml-2 h-4 w-4" />
+          </a>
+        </div>
+      </div>
+    </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-white">
