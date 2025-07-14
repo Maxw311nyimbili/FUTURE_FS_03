@@ -13,7 +13,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      process: 'process/browser',
+      process: 'process/browser.js',
     },
   },
   optimizeDeps: {
@@ -23,7 +23,7 @@ export default defineConfig({
     rollupOptions: {
       plugins: [
         inject({
-          process: 'process/browser',
+          process: 'process/browser.js',
         }),
       ],
     },
