@@ -1,5 +1,5 @@
 import BerkshireHathaway from '../../Components/BerkshireHathaway/BerkshireHathaway';
-import DocumentVerification from '../../Components/BerkshireHathaway/smileDocumentVerification';
+
 const Home = () => {
     return (
         <div>

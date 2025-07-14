@@ -1,19 +1,19 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import inject from '@rollup/plugin-inject';
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss()
+    tailwindcss(),
   ],
   define: {
-    'process.env': {}, 
+    'process.env': {},
   },
   resolve: {
     alias: {
-      process: 'process/browser.js',
+      process: 'process/browser', // ✅ Correct, no ".js"
     },
   },
   optimizeDeps: {
@@ -23,7 +23,7 @@ export default defineConfig({
     rollupOptions: {
       plugins: [
         inject({
-          process: 'process/browser.js',
+          process: 'process', // ✅ Just 'process', let alias handle it
         }),
       ],
     },
