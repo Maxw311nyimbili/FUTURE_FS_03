@@ -8,9 +8,6 @@ const Home = () => {
                 <BerkshireHathaway/>
             </div>
 
-            {/* <div className="w-full">
-                <DocumentVerification/>
-            </div> */}
 
         </div>
     );
