@@ -97,10 +97,10 @@ const BerkshireHathawayWebsite = () => {
               <img 
                 src="images/logo.png" 
                 alt="Berkshire Hathaway Inc. Logo" 
-                className="h-20 w-auto"
+                className="h-12 sm:h-16 md:h-20 w-auto"
               />
-          
             </div>
+
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
@@ -163,7 +163,12 @@ const BerkshireHathawayWebsite = () => {
         
         {/* Professional background image */}
         <div className="absolute inset-0 bg-gray-50">
-          <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 opacity-30"></div>
+          <img 
+            src="images/berkshire-hq.jpg"
+            alt="Professional office building"
+            className="w-full h-full object-cover object-center opacity-30"
+            loading="eager"
+          />
         </div>
 
         {/* Subtle texture overlay */}
